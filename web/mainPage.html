@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.table_list{
+				text-align: center;
+				margin-left: 100px;
+				margin-top: 20px;
+			}
+		</style>
+		<script src="js/jquery-1.12.4.js"></script>
+	</head>
+	<body>
+		
+		<div style="margin:20px 0px 0px 100px">
+     	 <form method="post" action="" onsubmit="return false;">
+         
+	        
+	        姓名:<input type="text" name="name" id="d1"/></br>
+	        电话:<input type="text" name="tell" id="d2"/></br>
+	        地址:<input type="text" name="adress" id="d3"/></br>
+	        年龄:<input type="text" name="age" id="d4"/></br>
+         </form>
+
+            <div class="operation_button">
+                <button><a href="#" title="保存" onclick="addMan()">添加</a></button>
+            </div>
+      
+     </div>
+
+		 <div>
+    <table border="1px" width="80%" border="0" cellpadding="0" cellspacing="0" class="table_list">
+      <thead>
+        <tr>
+          
+          <th width="5%">序号</th>
+          <th width="10%">姓名</th>
+          <th width="15%">电话</th>
+          <th width="20%">地址</th>
+          <th width="15%">年龄</th>
+          <th width="10%">操作</th>
+          
+        </tr>
+      </thead>
+      
+      <tbody id="t_body">
+      <tr>
+          <td>1</td>
+          <td>男</td>
+          <td>总经理</td>
+          <td>010-68348438-668</td>
+          <td>13622883228</td>
+          <td><button>删除</button></td>
+          
+       </tr> 
+      </tbody>
+    </table>
+    
+  </div>
+		
+	</body>
+    <!--添加人员信息-->
+    <!--<script>-->
+        <!--function addMan() {-->
+            <!---->
+        <!--}-->
+
+    <!--</script>-->
+
+</html>
