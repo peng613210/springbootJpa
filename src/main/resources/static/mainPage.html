@@ -51,22 +51,22 @@
       </thead>
       
       <tbody id="t_body">
-      <tr>
-          <td>1</td>
-          <td>男</td>
-          <td>总经理</td>
-          <td>010-68348438-668</td>
-          <td>13622883228</td>
-          <td><button>删除</button></td>
-          
-       </tr> 
+      <!--<tr>-->
+          <!--<td>1</td>-->
+          <!--<td>男</td>-->
+          <!--<td>总经理</td>-->
+          <!--<td>010-68348438-668</td>-->
+          <!--<td>13622883228</td>-->
+          <!--<td><button>删除</button></td>-->
+          <!---->
+       <!--</tr> -->
       </tbody>
     </table>
     
   </div>
 		
 	</body>
-
+    <!--添加数据-->
     <script>
         function addMan() {
             $.ajax({
@@ -82,10 +82,66 @@
                 success:function (data) {
                     if(data.code == 1){
                         alert("添加成功");
+                        $("#t_body").empty();
+                        findAll();
                     }
                 }
             })
         }
+    </script>
+    <!--查找全部数据-->
+    <script>
+        $(function() {
+            findAll();
+        });
+    </script>
+    <script>
+        function findAll(){
+            $.ajax({
+                type:"get",
+                url:"http://localhost:8080/findAll.do",
+                dateType:"json",
+                success:function(data){
+                    if(data.code == 1){
+                        $.each(data.data, function(i, item) {
+                            var html = '<tr>' ;
+                            html +='<td>'+(i+1)+'</td>' ;
+                            html +='<td>'+item.name+'</td>' ;
+                            html +='<td>'+item.tell+'</td>' ;
+                            html += '<td>'+item.adress+'</td>' ;
+                            html += '<td>'+item.age+'</td>' ;
+                            html += '<td><button id="td1" onclick="delById('+item.id+')">删除</button></td>' ;
+                            html += '</tr> ';
+
+                            $("#t_body").append($(html));
+                        })
+                    }
+                }
+            })
+        }
+
+    </script>
+<!--删除数据-->
+    <script>
+      // var id1 = $("#td1").val();
+        // var index = info.indexOf("id=",0);
+        // var id = info.substring(index + 6);
+    function delById(id) {
+        $.ajax({
+            type:"delete",
+            url:"http://localhost:8080/userDetele.do?id="+id,
+            dataType:"json",
+            success:function (data) {
+                if(data.code == 1){
+                    $("#t_body").empty();
+                    findAll();
+                    alert("删除成功");
+                }
+
+            }
+        })
+    }
+
     </script>
 
 </html>

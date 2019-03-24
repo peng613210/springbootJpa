@@ -29,6 +29,7 @@ public class ResultUtils {
         ResultVo resultVo = new ResultVo();
         resultVo.setCode(1);
         resultVo.setMsg("OK");
+        resultVo.setData(obj);
         return resultVo;
     }
 

@@ -14,6 +14,8 @@ public class User {
     private String adress;
     private Integer age;
 
+    public User(){}
+
     public User(String name, String tell, String adress, Integer age) {
         this.name = name;
         this.tell = tell;
